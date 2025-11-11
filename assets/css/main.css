@@ -2075,7 +2075,7 @@ input, select, textarea {
 				}
 
 				#nav ul li.active a, #nav ul li.active span {
-					background: #f7583b;
+					background: #f7583b; 
 				}
 
 				#nav ul li.current a {
@@ -3118,3 +3118,65 @@ section.box.feature .image {
 }
 
 
+
+/* 修复 hover 时导航项背后的矩形背景问题 */
+#nav > ul > li {
+  background: transparent !important;
+}
+
+/* 鼠标悬停时仍保留按钮圆角和颜色 */
+#nav > ul > li:hover > a {
+  background: #f7583b !important; /* 保留原橙色 */
+  color: #fff !important;
+  border-radius: 25px; /* 确保仍是圆角按钮 */
+}
+
+
+
+
+/* --- Slideshow Container --- */
+.slideshow {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* --- Each Slide --- */
+.slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* 淡入淡出 */
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+}
+
+/* --- Buttons --- */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  color: #f7583b;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slide-btn:hover {
+  background: rgba(250, 142, 123, 0.9);
+  color: white;
+}
+
+.slide-btn.prev {
+  left: 10px;
+}
+
+.slide-btn.next {
+  right: 10px;
+}
