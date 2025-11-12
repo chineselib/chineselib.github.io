@@ -3171,3 +3171,13 @@ section.box.feature .image {
 }
 
 
+
+
+
+/* 默认隐藏换行（宽屏不换行） */
+.mobile-break { display: none; }
+
+/* 小屏显示换行 */
+@media screen and (max-width: 900px) {
+  .mobile-break { display: inline; } /* 或 display:block; */
+}
