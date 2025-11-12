@@ -3181,3 +3181,51 @@ section.box.feature .image {
 @media screen and (max-width: 900px) {
   .mobile-break { display: inline; } /* 或 display:block; */
 }
+
+
+
+
+
+
+
+/* 桌面端保持原来的左边距 */
+.donate-section {
+  margin-left: 10em;
+}
+
+/* 手机或平板端自动取消左边距并居中 */
+@media screen and (max-width: 768px) {
+  .donate-section {
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  .donate-section img {
+    width: 70%;
+  }
+
+  .donate-section a.button {
+    left: 0 !important;
+    top: 0 !important;
+    display: inline-block;
+    margin-top: 1em;
+  }
+}
+
+
+
+
+
+
+
+.qrcode-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.qrcode-link:hover {
+  transform: scale(1.05);
+}
+
