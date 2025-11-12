@@ -3083,7 +3083,7 @@ section.box.feature .image {
 /* Semi-transparent button */
 .image-button {
   position: absolute;
-  top: 44%;                  /* 垂直居中 */   
+  top: 38%;                  /* 垂直居中 */   
   left: 50%;
   transform: translateX(-50%);
   background: rgba(247, 88, 59, 0.8); 
