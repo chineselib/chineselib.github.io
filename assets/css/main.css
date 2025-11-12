@@ -3218,14 +3218,14 @@ section.box.feature .image {
 
 
 
-.qrcode-link {
+.foot-icon-qrcode {
   text-decoration: none;
   color: inherit;
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
-.qrcode-link:hover {
+.foot-icon-qrcode:hover {
   transform: scale(1.05);
 }
 
