@@ -491,7 +491,7 @@ input, select, textarea {
 		.row.gtr-200 {
 			margin-top: -80px;
 			margin-left: -80px;
-			padding-bottom: 40px;
+			padding-bottom: 20px;
 			padding-right: 20px;
 			border-radius: 120px;
 		}
@@ -503,13 +503,16 @@ input, select, textarea {
 				background-color: #ffc7ee;
 			}
 
-			.row.gtr-200.news1 {
-				background-color: #fff98a;
+			.row.gtr-200.news {
+				margin-top: 10px;
+				margin-bottom: 40px;
+				background-color: rgba(240,220,120,0.5);
 			}
-			.row.gtr-200.news2 {
-				background-color: #ffc7ee;
-			}
-		
+
+
+.row.gtr-200.news2 {
+   /* 取消默认的负 margin */
+}
 
 			.row.gtr-200 > * {
 				padding: 80px 0 0 80px;
@@ -1978,10 +1981,23 @@ input, select, textarea {
 	}
 
 	#main-wrapper {
+		background: #C0ECFD;
+		box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
+		padding: 5em 0 5em 0;
+	}
+
+		#main-wrapper-index-accomplishment {
 		background: #fff;
 		box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
 		padding: 5em 0 5em 0;
 	}
+
+		#main-wrapper-index-recentNews {
+		background: #fff;
+		box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
+		padding: 5em 0 5em 0;
+	}
+
 
 	#footer-wrapper {
 		padding: 0em 0 3em 0;
@@ -2177,7 +2193,7 @@ input, select, textarea {
 .slogan-banner {
   position: relative;
   display: inline-block;
-  background: linear-gradient(to right, rgba(247, 231, 181, 0), #ffd75e 40%, #ffd75e 60%, rgba(247, 231, 181, 0));
+  background: linear-gradient(to right, rgba(250, 243, 222, 0), rgba(250, 243, 222, 0.3) 50%, rgba(250, 243, 222, 0.3) 50%, rgba(250, 243, 222, 0));
   color: #4a2c00;
   padding: 15px 60px;
   border-radius: 8px;
@@ -3134,49 +3150,3 @@ section.box.feature .image {
 
 
 
-/* --- Slideshow Container --- */
-.slideshow {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
-/* --- Each Slide --- */
-.slide {
-  display: none;
-  opacity: 0;
-  transition: opacity 1s ease-in-out; /* 淡入淡出 */
-}
-
-.slide.active {
-  display: block;
-  opacity: 1;
-}
-
-/* --- Buttons --- */
-.slide-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.6);
-  color: #f7583b;
-  border: none;
-  border-radius: 50%;
-  padding: 10px 15px;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.slide-btn:hover {
-  background: rgba(250, 142, 123, 0.9);
-  color: white;
-}
-
-.slide-btn.prev {
-  left: 10px;
-}
-
-.slide-btn.next {
-  right: 10px;
-}
