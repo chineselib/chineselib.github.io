@@ -1,0 +1,24 @@
+/* layout.css - header, nav, footer, cards, boxes */
+#header-wrapper{background:transparent;padding:12px 0}
+#header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#nav ul{list-style:none;display:flex;gap:12px;margin:0;padding:0;align-items:center}
+#nav a{padding:.4em .6em;border-radius:6px}
+#nav li ul{display:none;position:absolute;background:#fff;padding:8px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+#nav li:hover > ul{display:block}
+#banner{padding:36px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75))}
+.box{background:#fff;padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,.04)}
+.image-button-wrapper{position:relative}
+.image-button{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;background:rgba(0,0,0,.6);color:#fff;padding:.5em 1em;border-radius:20px;text-decoration:none}
+.team-member{text-align:center}
+.member-photo{border-radius:6px;height:160px;object-fit:cover}
+.footer{padding:40px 0;background:transparent}
+.footer .links{display:flex;gap:12px;flex-wrap:wrap}
+.slogan{font-family:"CFont-ZCOOLXiaoWei","CFont-KNMaiyuan", "Open Sans", sans-serif;font-size:1.6em}
+.image.fit{border-radius:8px}
+.news-link{text-decoration:none;color:inherit}
+.slideshow-container{position:relative;overflow:hidden;border-radius:8px}
+.slide{display:none}
+.slide img{width:100%;height:auto;display:block}
+.prev,.next{position:absolute;top:50%;transform:translateY(-50%);padding:.4em .6em;background:rgba(0,0,0,.4);color:#fff;border-radius:50%;cursor:pointer}
+.dots{margin-top:.6em}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#ddd;margin:.2em;cursor:pointer}

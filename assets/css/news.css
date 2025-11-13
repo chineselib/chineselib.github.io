@@ -1,0 +1,188 @@
+/*
+==================================================
+  news.css
+  新闻页专属样式
+  提取自原 main.css
+  日期：2025-11-13
+==================================================
+*/
+
+/* 每条新闻结构 */
+.row.gtr-200.news {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: 3em 0;
+  padding: 1em 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.row.gtr-200.news:last-child {
+  border-bottom: none;
+}
+
+/* 左右两列 */
+.row.gtr-200.news > .col-4,
+.row.gtr-200.news > .col-8 {
+  padding: 0 1.5em;
+  box-sizing: border-box;
+}
+
+/* 段落与标题 */
+.row.gtr-200.news h3 {
+  margin-top: 0;
+  color: #e74c3c;
+}
+
+.row.gtr-200.news p {
+  line-height: 1.7;
+  margin-bottom: 1em;
+}
+
+/* 轮播容器 */
+.row.gtr-200.news .slideshow-container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.row.gtr-200.news .slide {
+  display: none;
+  text-align: center;
+}
+
+.row.gtr-200.news .slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* 控制按钮 */
+.row.gtr-200.news .prev,
+.row.gtr-200.news .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background: rgba(0,0,0,0.3);
+}
+
+.row.gtr-200.news .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.row.gtr-200.news .prev:hover,
+.row.gtr-200.news .next:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* 小圆点 */
+.row.gtr-200.news .dots {
+  text-align: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.row.gtr-200.news .dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.row.gtr-200.news .active,
+.row.gtr-200.news .dot:hover {
+  background-color: #e74c3c;
+}
+
+/* 动画效果 */
+.row.gtr-200.news .fade {
+  animation: fadeEffect 1s ease-in-out;
+}
+
+@keyframes fadeEffect {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========================
+   响应式：窄屏手机优化
+======================== */
+@media screen and (max-width: 736px) {
+  /* 整体改为纵向排列 */
+  .row.gtr-200.news {
+    display: block !important;
+    margin: 2em 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  /* 各列全宽 */
+  .row.gtr-200.news > .col-4,
+  .row.gtr-200.news > .col-8 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 图片与轮播全宽 */
+  .row.gtr-200.news img,
+  .row.gtr-200.news .slideshow-container {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* 去掉图片下方空白 */
+  .row.gtr-200.news .slide img {
+    display: block !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    vertical-align: top !important;
+  }
+
+  /* 取消缩进，紧贴屏幕 */
+  .row.gtr-200.news {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* 隐藏小圆点 */
+  .row.gtr-200.news .dots {
+    display: none !important;
+  }
+
+  /* 调整文字对齐 */
+  .row.gtr-200.news section {
+    text-align: center !important;
+    padding: 1em 0.8em !important;
+  }
+
+  /* 调整标题 */
+  .row.gtr-200.news h3 {
+    text-align: center !important;
+    margin-top: 1em !important;
+  }
+
+  /* 调整段落 */
+  .row.gtr-200.news p {
+    margin: 0.8em 0 !important;
+  }
+}

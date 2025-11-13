@@ -3291,6 +3291,8 @@ section.box.feature .image {
   background-color: #fffdf0;
   border-radius: 40px;
   margin-bottom: 40px;
+  margin-left:6em;
+  margin-top:4em;
   padding: 1.5em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -3306,24 +3308,95 @@ section.box.feature .image {
   padding: 1em;
 }
 
-
-
-
-
-
-
-/* ====== news 页面专用样式 ====== */
-
-/* 每条新闻之间的垂直间距 */
-.news {
-  margin-bottom: 3em;  /* 可以改成 4em 或 5em 看视觉效果 */
+.past-news {
+  max-width:90%; 
+  margin-top:4em;
 }
 
-/* 手机端稍微减小一点间距 */
-@media screen and (max-width: 768px) {
-  .news {
-    margin-bottom: 3em;
+/* 窄屏时 news 图片和文字上下排列 */
+@media screen and (max-width: 736px) {
+  .row.gtr-200.news {
+    flex-direction: column !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .row.gtr-200.news > .col-4,
+  .row.gtr-200.news > .col-8 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* 图片全宽显示，文字与图片间距增加 */
+  .row.gtr-200.news img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  .row.gtr-200.news section {
+    text-align: center; /* 可选，让文字在小屏居中 */
+  }
+}
+
+
+/* 📱 窄屏时去掉图片下方额外空白 */
+@media screen and (max-width: 736px) {
+  .row.gtr-200.news img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 0 !important;    /* ✅ 去掉图片与下方文字的额外空隙 */
+    padding-bottom: 0 !important;
+    vertical-align: middle !important;
+  }
+
+  /* 确保图片外层容器也没有底部空隙 */
+  .row.gtr-200.news .slide,
+  .row.gtr-200.news .slideshow-container,
+  .row.gtr-200.news .widget.slideshow {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 去掉 <p> 的多余 margin */
+  .row.gtr-200.news p {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.8em !important;
+  }
+}
+
+
+
+
+/* 在手机等窄屏下取消 news 缩进 */
+@media screen and (max-width: 736px) {
+  .row.gtr-200.news {
+    margin-left: 1em !important;
+    margin-right: 1em !important;
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+    border-radius: 30px !important; /* 可选：去掉圆角 */
+    max-width: 100% !important;
+  }
+
+  .row.gtr-200.news > * {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .past-news {
+  	margin-left:2em;
+  	margin-top:-8em;
   }
 
 }
+
+
+
+
 

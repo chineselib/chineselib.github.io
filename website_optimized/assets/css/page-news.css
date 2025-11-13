@@ -1,0 +1,11 @@
+/* page-news.css - slideshow and news-specific tweaks */
+.slideshow-container{height:320px}
+.slide.fade{animation:fade 0.8s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.slide.active{display:block}
+.news-block{display:flex;gap:18px;align-items:center}
+.news-block img{width:140px;border-radius:8px}
+@media(max-width:980px){
+  .slideshow-container{height:200px}
+  .news-block{flex-direction:column;align-items:flex-start}
+}
