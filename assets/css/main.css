@@ -505,9 +505,40 @@ input, select, textarea {
 
 			.row.gtr-200.news {
 				margin-top: 10px;
-				margin-bottom: 40px;
+				margin-bottom: 20px;
 				background-color: rgba(240,220,120,0.5);
 			}
+
+
+
+
+/* 调整新闻块宽度和布局 */
+.row.gtr-200.news {
+  max-width: 1200px;   /* 控制每个新闻块最大宽度，可改成900或1100 */
+  margin: 0 auto 40px auto;  /* 居中并保持底部间距 */
+  padding: -10px;       /* 内边距缩小 */
+  border-radius: 60px; /* 保持圆角 */
+}
+
+/* 可选：让图片和文字比例更协调 */
+.row.gtr-200.news .col-4 {
+  width: 40%;          /* 原是33.333%，略窄一点 */
+}
+
+.row.gtr-200.news .col-8 {
+  width: 58%;          /* 原是66.666%，略宽一点 */
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .row.gtr-200.news2 {
@@ -3229,3 +3260,47 @@ section.box.feature .image {
   transform: scale(1.05);
 }
 
+
+
+
+
+
+
+
+
+/* ===== 区分新闻区与右侧 sidebar ===== */
+#main-wrapper .col-10 {
+  background: #fffef6;         /* 给新闻区加柔和背景 */
+  border-radius: 40px;
+  padding: 2em;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+/* 右侧“往期活动”栏视觉独立 */
+#main-wrapper .col-2 {
+  background: #f9f7e3;
+  border-radius: 40px;
+  padding: 2em 1.5em;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  margin-left: 20px;           /* 与主内容拉开距离 */
+}
+
+/* 每条新闻块之间留白、增强层次 */
+.row.gtr-200.news {
+  background-color: #fffdf0;
+  border-radius: 40px;
+  margin-bottom: 40px;
+  padding: 1.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.row.gtr-200.news:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 让左右文字/图片分栏更自然 */
+.row.gtr-200.news .col-4,
+.row.gtr-200.news .col-8 {
+  padding: 1em;
+}
