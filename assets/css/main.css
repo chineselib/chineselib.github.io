@@ -3269,20 +3269,21 @@ section.box.feature .image {
 
 
 /* ===== 区分新闻区与右侧 sidebar ===== */
-#main-wrapper .col-10 {
+#main-wrapper .col-9 {
   background: #fffef6;         /* 给新闻区加柔和背景 */
   border-radius: 40px;
+  margin-left:4em;
   padding: 2em;
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
 }
 
 /* 右侧“往期活动”栏视觉独立 */
 #main-wrapper .col-2 {
-  background: #f9f7e3;
+  background: rgba(255,255,255, 0.3);
   border-radius: 40px;
   padding: 2em 1.5em;
   box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-  margin-left: 20px;           /* 与主内容拉开距离 */
+  margin-left: 40px;           /* 与主内容拉开距离 */
 }
 
 /* 每条新闻块之间留白、增强层次 */
@@ -3304,3 +3305,25 @@ section.box.feature .image {
 .row.gtr-200.news .col-8 {
   padding: 1em;
 }
+
+
+
+
+
+
+
+/* ====== news 页面专用样式 ====== */
+
+/* 每条新闻之间的垂直间距 */
+.news {
+  margin-bottom: 3em;  /* 可以改成 4em 或 5em 看视觉效果 */
+}
+
+/* 手机端稍微减小一点间距 */
+@media screen and (max-width: 768px) {
+  .news {
+    margin-bottom: 3em;
+  }
+
+}
+
