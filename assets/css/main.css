@@ -2440,6 +2440,7 @@ input, select, textarea {
 				border-bottom: solid 1px #e8e8e8;
 				padding-bottom: 4em;
 				margin-bottom: 0 !important;
+				padding-left: 2em;
 			}
 
 				#content > :last-child {
