@@ -498,9 +498,9 @@ input, select, textarea {
 
 
 		.row.gtr-200.our-work {
-			margin-top: -100px;
+			margin-top: -80px;
 			margin-left: -80px;
-			padding-bottom: 80px;
+			padding-bottom: 90px;
 			padding-right: 20px;
 			border-radius: 120px;
 		}
@@ -3418,14 +3418,14 @@ section.box.feature .image {
     margin-bottom: 60px !important;  /* 缩短按钮与对应板块的距离 */
     display: block;
     display: block;
-    width: fit-content;
     margin-left: auto;
     margin-right: auto;            /* 保持居中 */
   }
 
 
   .row.gtr-200.our-work {
-  	margin-top: 2em !important; 
+  	margin-top: 2em;
+  	margin-bottom: -9em !important; 
   }
 
   /* 可选：减少 section 的底部间距，让视觉更紧凑 */
