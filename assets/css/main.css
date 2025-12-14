@@ -3477,3 +3477,26 @@ padding-left:6em;
 html {
   scroll-behavior: smooth;
 }
+
+
+
+
+
+/* 修复新闻图片在窄屏下被拉高的问题 */
+@media screen and (max-width: 736px) {
+
+  .row.gtr-200.news {
+    align-items: flex-start; /* 不再强行拉满高度 */
+  }
+
+  .row.gtr-200.news .slideshow-container {
+    height: auto;
+  }
+
+  .row.gtr-200.news .slideshow-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
