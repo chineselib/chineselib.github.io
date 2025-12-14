@@ -3231,28 +3231,72 @@ section.box.feature .image {
 
 
 /* 桌面端保持原来的左边距 */
-.donate-section {
-  margin-left: 10em;
+.donate-section-left {
+padding-left:6em;
+
+}
+
+.donation-section-right {
+
+}
+
+
+
+
+
+@media screen and (max-width: 980px) {
+	  .donate-section-left {
+    padding-left:3em !important;
+    text-align: center;
+    
+  }
 }
 
 /* 手机或平板端自动取消左边距并居中 */
 @media screen and (max-width: 768px) {
-  .donate-section {
+  .donate-section-left {
+    padding-left:0 !important;
+    text-align: center;
+  }
+
+  .donate-section-left img {
+    width: 70%;
+  }
+
+  .donate-section-left a.button {
+    left: 0 !important;
+    top: 0 !important;
+    display: inline-block;
+    margin-top: 1em;
+  }
+
+}
+
+
+/* 桌面端保持原来的左边距 */
+.support_part1 {
+  margin-left: 4em;
+}
+
+/* 手机或平板端自动取消左边距并居中 */
+@media screen and (max-width: 768px) {
+  .support_part1 {
     margin-left: 0 !important;
     text-align: center;
   }
 
-  .donate-section img {
+  .support_part1 img {
     width: 70%;
   }
 
-  .donate-section a.button {
+  .support_part1 a.button {
     left: 0 !important;
     top: 0 !important;
     display: inline-block;
     margin-top: 1em;
   }
 }
+
 
 
 
