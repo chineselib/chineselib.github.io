@@ -127,8 +127,8 @@ input, select, textarea {
 		background-size: 100% 30em, auto;
 		font-family: 'Open Sans', sans-serif;
 		font-size: 13pt;
-		color: #696969;
-		font-weight: 300;
+		color: #3a3a3a;
+		font-weight: 350;
 		line-height: 2.25em;
 	}
 
@@ -3250,6 +3250,11 @@ padding-left:6em;
     text-align: center;
     
   }
+
+  .donation-button {
+  	margin-left: 0 !important;
+    margin-top: -8em !important;
+	}
 }
 
 /* 手机或平板端自动取消左边距并居中 */
@@ -3273,6 +3278,7 @@ padding-left:6em;
 }
 
 
+
 /* 桌面端保持原来的左边距 */
 .support_part1 {
   margin-left: 4em;
@@ -3282,19 +3288,8 @@ padding-left:6em;
 @media screen and (max-width: 768px) {
   .support_part1 {
     margin-left: 0 !important;
-    text-align: center;
   }
 
-  .support_part1 img {
-    width: 70%;
-  }
-
-  .support_part1 a.button {
-    left: 0 !important;
-    top: 0 !important;
-    display: inline-block;
-    margin-top: 1em;
-  }
 }
 
 
@@ -3479,4 +3474,6 @@ padding-left:6em;
 }
 
 
-
+html {
+  scroll-behavior: smooth;
+}
