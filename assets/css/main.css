@@ -3488,28 +3488,36 @@ html {
 
 .lang-switch {
   position: absolute;
-  top: -30px;
+  top: -45px;
   right: 0px;
   font-size: 14px;
   z-index: 1000;
   white-space: nowrap;
 }
 
+
+/* 语言切换的基础样式 */
 .lang-switch a {
-  color: #0090c5;
+  color: #2f7fa8;          /* 温和蓝，和背景协调 */
+  font-weight: 500;
   text-decoration: none;
-  font-weight: 600;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
+/* active 状态：不要橘色 */
 .lang-switch a.active {
+  color: #1c5f7a;
   font-weight: 800;
+  background: none;        /* 关键：去掉背景 */
 }
+
 
 
 
 @media screen and (max-width: 980px) {
   .lang-switch {
-    top: 10px;
+    top: -15px;
     right: 30px; /* 给 hamburger menu 留空间 */
     font-size: 13px;
   }
@@ -3517,7 +3525,7 @@ html {
 
 @media screen and (max-width: 736px) {
   .lang-switch {
-    top: 8px;
+    top: -15px;
     right: 10px;
     opacity: 0.9;
   }
