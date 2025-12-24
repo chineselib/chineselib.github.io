@@ -3489,7 +3489,7 @@ html {
 .lang-switch {
   position: absolute;
   top: -30px;
-  right: -50px;
+  right: 0px;
   font-size: 14px;
   z-index: 1000;
   white-space: nowrap;
