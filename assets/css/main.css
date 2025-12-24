@@ -3482,21 +3482,45 @@ html {
 
 
 
-/* 修复新闻图片在窄屏下被拉高的问题 */
-@media screen and (max-width: 736px) {
+#header {
+  position: relative;
+}
 
-  .row.gtr-200.news {
-    align-items: flex-start; /* 不再强行拉满高度 */
-  }
+.lang-switch {
+  position: absolute;
+  top: -30px;
+  right: -50px;
+  font-size: 14px;
+  z-index: 1000;
+  white-space: nowrap;
+}
 
-  .row.gtr-200.news .slideshow-container {
-    height: auto;
-  }
+.lang-switch a {
+  color: #0090c5;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-  .row.gtr-200.news .slideshow-container img {
-    width: 100%;
-    height: auto;
-    display: block;
+.lang-switch a.active {
+  font-weight: 800;
+}
+
+
+
+@media screen and (max-width: 980px) {
+  .lang-switch {
+    top: 10px;
+    right: 30px; /* 给 hamburger menu 留空间 */
+    font-size: 13px;
   }
 }
+
+@media screen and (max-width: 736px) {
+  .lang-switch {
+    top: 8px;
+    right: 10px;
+    opacity: 0.9;
+  }
+}
+
 
