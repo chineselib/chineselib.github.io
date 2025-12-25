@@ -3514,10 +3514,9 @@ html {
 
 
 
-
 @media screen and (max-width: 980px) {
   .lang-switch {
-    top: -15px;
+    top: -10px;
     right: 30px; /* 给 hamburger menu 留空间 */
     font-size: 13px;
   }
@@ -3525,8 +3524,8 @@ html {
 
 @media screen and (max-width: 736px) {
   .lang-switch {
-    top: -15px;
-    right: 10px;
+    top: -10px;
+    right: 0px;
     opacity: 0.9;
   }
 }
