@@ -3531,3 +3531,42 @@ html {
 }
 
 
+
+
+/* 🔥 彻底修复 news 页窄屏图片下方空白 */
+@media screen and (max-width: 736px) {
+
+  /* 1️⃣ 幻灯片容器不允许锁高度 */
+  .row.gtr-200.news .slideshow-container {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* 2️⃣ slide 不再用绝对定位撑空间 */
+  .row.gtr-200.news .slide {
+    position: relative !important;
+    height: auto !important;
+  }
+
+  /* 3️⃣ 图片真正决定高度 */
+  .row.gtr-200.news .slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* 4️⃣ dots 不要额外占空间 */
+  .row.gtr-200.news .dots {
+    margin-top: 0.3em !important;
+    margin-bottom: 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* 5️⃣ slideshow 整体不要留 padding */
+  .row.gtr-200.news .widget.slideshow {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+
