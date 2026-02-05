@@ -236,11 +236,9 @@
 
 							<section>
 								<h3>往期活动</h3>
-								<ul class="style2">
-									<li><a href="news-past-202511.html#news1"></br>2025年11月23日 ｜ 第4期中文故事会</a></li>
-									<li><a href="news-past-202511.html#news2">2025年11月16日 | 第3期中文故事会</a></li>
-									<li><a href="news-past-202511.html#news3">2025年11月02日 | 第2期中文故事会</a></li>
-								</ul>
+								<div class="past-news" id="sidebar">
+  <div id="news-sidebar-container"></div>
+</div>
 
 							</section>
 
@@ -393,6 +391,30 @@
 				  });
 				});
 			</script>
+
+			<script>
+async function loadNewsSidebar() {
+  // 1) 加载侧栏框架
+  const sidebarHtml = await fetch('/partials/news_sidebar.html').then(r => r.text());
+  document.getElementById('news-sidebar-container').innerHTML = sidebarHtml;
+
+  // 2) 加载归档数据并渲染
+  const archive = await fetch('/data/news_archive.json').then(r => r.json());
+  const ul = document.getElementById('news-archive-list');
+
+  // 最新在上：假设你 JSON 已经按新到旧排好
+  archive.forEach(block => {
+    block.items.forEach(it => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${block.file}#${it.id}">${it.label}</a>`;
+      ul.appendChild(li);
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadNewsSidebar);
+</script>
+
 
 
 	</body>
