@@ -204,32 +204,27 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<script>
-				fetch('sidebar.html')
-				  .then(res => res.text())
-				  .then(html => {
-				    const sidebar = document.getElementById('sidebar');
-				    sidebar.innerHTML = html;
+						<script>
+					fetch('/story_time_htmls/story_list.html')
+					  .then(res => res.text())
+					  .then(html => {
+					    const sidebar = document.getElementById('sidebar');
+					    sidebar.innerHTML = html;
 
-				    // --- highlight current page ---
-				    const currentFile = location.pathname.split('/').pop(); // e.g. story_time_10182025.html
-				    const links = sidebar.querySelectorAll('a[href]');
-
-				    links.forEach(a => {
-				      // 只比较文件名，避免相对路径差异
-				      const linkFile = a.getAttribute('href').split('/').pop();
-				      if (linkFile === currentFile) {
-				        // 把 <a> 变成不可点击的纯文本，并加 class
-				        const li = a.closest('li');
-				        if (li) {
-				          li.classList.add('current');
-				          li.textContent = a.textContent; // 用纯文本替换，效果=你以前“没有链接”的那一行
-				        }
-				      }
-				    });
-				  })
-				  .catch(err => console.error('sidebar load failed', err));
-				</script>
+					    // 高亮当前页
+					    const currentFile = location.pathname.split('/').pop();
+					    sidebar.querySelectorAll('a').forEach(a => {
+					      const linkFile = a.getAttribute('href').split('/').pop();
+					      if (linkFile === currentFile) {
+					        const li = a.closest('li');
+					        if (li) {
+					          li.classList.add('current');
+					          li.textContent = a.textContent;
+					        }
+					      }
+					    });
+					  });
+					</script>
 
 
 
