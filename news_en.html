@@ -15,6 +15,31 @@
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 		/>
 	</head>
+
+<script>
+async function loadNewsSidebar() {
+  // 1) 加载侧栏框架
+  const sidebarHtml = await fetch('/partials/news_sidebar.html').then(r => r.text());
+  document.getElementById('news-sidebar-container').innerHTML = sidebarHtml;
+
+  // 2) 加载归档数据并渲染
+  const archive = await fetch('/data/news_archive.json').then(r => r.json());
+  const ul = document.getElementById('news-archive-list');
+
+  // 最新在上：假设你 JSON 已经按新到旧排好
+  archive.forEach(block => {
+    block.items.forEach(it => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${block.file}#${it.id}">${it.label}</a>`;
+      ul.appendChild(li);
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadNewsSidebar);
+</script>
+
+	
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
 
