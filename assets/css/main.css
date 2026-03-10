@@ -2212,12 +2212,13 @@ input, select, textarea {
 	}
 
 		#banner h3 {
-			font-size: 1em;
+			font-size: 1.1em;
+			line-height: 1.2em;
 			margin: 0.1em 0 0em 0;
 		}
 
 		#banner p {
-			font-size: 3.25em;
+			font-size: 1.7em;
 			line-height: 1.5em;
 			margin: 0;
 		}
@@ -2246,7 +2247,7 @@ input, select, textarea {
 
 
 		.slogan-little {
-			padding: 0.2em 0.2em 0.25em 1em;
+			padding: 0.6em 0.2em 0.25em 1em;
 			font-family: 'Noto Serif SC';
 		    font-size: 100%;
 		    color: #1A6976;   
@@ -2810,12 +2811,12 @@ input, select, textarea {
 
 				#banner h3 {
 					font-size: 1em;
-					line-height: 1em;
+					line-height: 1.4em;
 					margin: 0;
 				}
 
 				#banner p {
-					font-size: 1.5em;
+					font-size: 1.3em;
 					line-height: 1.5em;
 					margin: 0;
 				}
@@ -3134,6 +3135,7 @@ section.box.feature .image {
   width: 100%;
   height: auto;
   display: block;
+  margin: 0 auto; /* 关键：上下为0，左右自动 */
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
@@ -3147,8 +3149,8 @@ section.box.feature .image {
   background: rgba(247, 88, 59, 0.7); 
   color: #fff;
 
-  padding: 20px 20px;
-  border-radius: 25px;
+  padding: 10px 4px;
+  border-radius: 20px;
   text-decoration: none;
   font-weight: 500;
   font-size: 2em;
@@ -3191,26 +3193,70 @@ section.box.feature .image {
 
 
 
-
-
-
 /* 减少首页三图模块在手机端的间距 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1120px) {
   #features-wrapper .box.feature {
-    margin-bottom: -4em !important; /* 原来大约是3em */
-    margin-top: -3em !important; /* 原来大约是3em */
+    margin-bottom: 0em !important; /* 原来大约是3em */
+    margin-top: -3.5em !important; /* 原来大约是3em */
     padding-bottom: 0em !important;
   }
 
   #features-wrapper .row {
     margin-bottom: 0 !important;
+    margin-top: 0em;
   }
 
   #features-wrapper .container {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    margin-top: -2em;
   }
 }
+
+
+/* 减少首页三图模块在手机端的间距 */
+@media screen and (max-width: 980px) {
+  #features-wrapper .box.feature {
+    margin-bottom: 0em !important; /* 原来大约是3em */
+    margin-top: -3.5em !important; /* 原来大约是3em */
+    padding-bottom: 0em !important;
+  }
+
+  #features-wrapper .row {
+    margin-bottom: 0 !important;
+    margin-top: 0em;
+  }
+
+  #features-wrapper .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: -4em;
+  }
+}
+
+
+
+
+/* 减少首页三图模块在手机端的间距 */
+@media screen and (max-width: 732px) {
+  #features-wrapper .box.feature {
+    margin-bottom: -4em !important; /* 原来大约是3em */
+    margin-top: -3.5em !important; /* 原来大约是3em */
+    padding-bottom: 0em !important;
+  }
+
+  #features-wrapper .row {
+    margin-bottom: 0 !important;
+    margin-top: -3em;
+  }
+
+  #features-wrapper .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 2em;
+  }
+}
+
 
 
 
@@ -3587,3 +3633,89 @@ html {
 
 
 
+/* ======================================================
+   终极修复：解决竖线、Size不一、响应式失效
+   ====================================================== */
+
+/* 1. 彻底杀掉竖线 (利用 ID 增加权重) */
+#features-wrapper .row > * {
+    border-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* 2. 解决“萌芽包”变小：统一所有格子的内部空间计算方式 */
+#features-wrapper .row > .col-3,
+#features-wrapper .row > div {
+    /* 核心：取消模板对第一个格子的特殊 margin 处理 */
+    padding-left: 20px !important;  
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+    /* 取消写死的 25%，让 HTML 里的 col-3 / col-6 自动发挥响应式作用 */
+}
+
+/* 针对第一个格子（萌芽包），强制它拥有和别人一样的间距 */
+#features-wrapper .row > :first-child {
+    padding-left: 20px !important;
+}
+
+/* 3. 解决 Size 变化：让图片永远撑满它所在的格子，不要被压缩 */
+.image-button-wrapper {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+.image-button-wrapper img {
+    /* 这是保证四张图一样大的关键：宽度100%，高度自动 */
+    width: 100% !important; 
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+/* 4. 标题文字强制居中 */
+#features-wrapper h3 {
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* 5. 修复响应式：在手机端自动调整 */
+@media screen and (max-width: 736px) {
+    #features-wrapper .row > .col-12-small {
+        width: 100% !important; /* 手机端占满全宽 */
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 20px !important; /* 增加上下间距 */
+    }
+}
+
+/* --- 专门针对竖线的深度清理 --- */
+
+/* 1. 彻底杀掉所有可能产生线条的属性 */
+#features-wrapper .row > * {
+    border-left: 0 !important;      /* 线条可能来自左边框 */
+    border-right: 0 !important;     /* 线条可能来自右边框 */
+    background-image: none !important; /* 线条可能来自背景图 */
+}
+
+/* 2. 杀掉这个模板最喜欢用的 ::before 伪元素线 */
+#features-wrapper .row > *:before {
+    display: none !important;
+    content: none !important;
+    border: 0 !important;
+}
+
+/* 3. 特别针对 Verti 模板中可能存在的背景线进行重置 */
+#features-wrapper .row {
+    background: none !important;
+}
+
+/* 4. 再次确认第一张图（萌芽包）之前的区域没有残留线条 */
+#features-wrapper .row > :first-child {
+    border-left: 0 !important;
+}
+#features-wrapper .row > :first-child:before {
+    display: none !important;
+}
