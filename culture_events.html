@@ -222,14 +222,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<script>
-				fetch('/story_time_htmls/story_list.html')
-				  .then(res => res.text())
-				  .then(html => {
-				    document.getElementById('story-list-container').innerHTML = html;
-				  })
-				  .catch(err => console.error(err));
-				</script>
 
 
 	</body>
