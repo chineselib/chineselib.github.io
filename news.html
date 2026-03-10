@@ -25,14 +25,46 @@ async function loadNewsSidebar() {
   // 2) 加载归档数据并渲染
   const archive = await fetch('/data/news_archive.json').then(r => r.json());
   const ul = document.getElementById('news-archive-list');
+  ul.innerHTML = ''; // 清空现有内容
 
-  // 最新在上：假设你 JSON 已经按新到旧排好
   archive.forEach(block => {
+    // 创建月份标题容器 (li)
+    const monthLi = document.createElement('li');
+    monthLi.style.cursor = 'pointer';
+    monthLi.style.fontWeight = 'bold';
+    monthLi.style.listStyle = 'none';
+    monthLi.style.marginTop = '10px';
+    
+    // 使用 FontAwesome 图标指示展开状态
+    monthLi.innerHTML = `<i class="fa fa-chevron-right" style="margin-right:8px; font-size:0.8em;"></i> ${block.month}`;
+
+    // 创建该月份下的新闻列表 (ul)，初始设为隐藏
+    const itemUl = document.createElement('ul');
+    itemUl.style.display = 'none'; 
+    itemUl.style.paddingLeft = '20px';
+    itemUl.style.marginTop = '5px';
+
     block.items.forEach(it => {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${block.file}#${it.id}">${it.label}</a>`;
-      ul.appendChild(li);
+      // 链接指向 json 中定义的归档文件，例如 news-past-202601.html
+      li.innerHTML = `<a href="${block.file}">${it.label}</a>`;
+      li.style.fontSize = '0.9em';
+      li.style.marginBottom = '5px';
+      itemUl.appendChild(li);
     });
+
+    // 绑定点击事件：点击月份切换显示/隐藏
+    monthLi.onclick = () => {
+      const isHidden = itemUl.style.display === 'none';
+      itemUl.style.display = isHidden ? 'block' : 'none';
+      
+      // 切换小图标方向
+      const icon = monthLi.querySelector('i');
+      icon.className = isHidden ? 'fa fa-chevron-down' : 'fa fa-chevron-right';
+    };
+
+    ul.appendChild(monthLi);
+    ul.appendChild(itemUl);
   });
 }
 
@@ -97,7 +129,7 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 
 									<!-- Sidebar -->
 										<section>
-											<h3>春节文化宣传之Mcknight</h3>
+											<h3>第9次故事会</h3>
 											<p>我们的中国新年展板巡回展览开始啦～～～<br>
 											2026年2月7日第一场。今晚我们走进Mcknight小学国际文化节，为时两小时，给小朋友们展示中国新年文化。</p>
 										</section>
@@ -113,10 +145,10 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 									    <section class="widget slideshow">
 									      <div class="slideshow-container">
 									        <div class="slide fade">
-									          <img src="images/news/20260205/20260205_1.jpg" alt="照片1">
+									          <img src="images/news/202602/20260205_1.jpg" alt="照片1">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260205/20260205_2.jpg" alt="照片2">
+									          <img src="images/news/202602/20260205_2.jpg" alt="照片2">
 									        </div>
 
 									        <!-- 控制按钮 -->
@@ -150,16 +182,16 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 									    <section class="widget slideshow">
 									      <div class="slideshow-container">
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_1.png" alt="照片1">
+									          <img src="images/news/202602/20260201_1.png" alt="照片1">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_2.png" alt="照片2">
+									          <img src="images/news/202602/20260201_2.png" alt="照片2">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_3.png" alt="照片3">
+									          <img src="images/news/202602/20260201_3.png" alt="照片3">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_4.png" alt="照片4">
+									          <img src="images/news/202602/20260201_4.png" alt="照片4">
 									        </div>
 
 									        <!-- 控制按钮 -->
@@ -205,11 +237,11 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 
 
 
-<div class="col-3 col-12-small">
-  <div id="sidebar" class="past-news">
-    <div id="news-sidebar-container"></div>
-  </div>
-</div>
+				<div class="col-3 col-12-small">
+				  <div id="sidebar" class="past-news">
+				    <div id="news-sidebar-container"></div>
+				  </div>
+				</div>
 
 
 

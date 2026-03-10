@@ -1,0 +1,563 @@
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>中文儿童图书馆</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link
+		  rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+		/>
+	</head>
+
+<script>
+async function loadNewsSidebar() {
+  // 1) 加载侧栏框架
+  const sidebarHtml = await fetch('/partials/news_sidebar.html').then(r => r.text());
+  document.getElementById('news-sidebar-container').innerHTML = sidebarHtml;
+
+  // 2) 加载归档数据并渲染
+  const archive = await fetch('/data/news_archive.json').then(r => r.json());
+  const ul = document.getElementById('news-archive-list');
+  ul.innerHTML = ''; // 清空现有内容
+
+  archive.forEach(block => {
+    // 创建月份标题容器 (li)
+    const monthLi = document.createElement('li');
+    monthLi.style.cursor = 'pointer';
+    monthLi.style.fontWeight = 'bold';
+    monthLi.style.listStyle = 'none';
+    monthLi.style.marginTop = '10px';
+    
+    // 使用 FontAwesome 图标指示展开状态
+    monthLi.innerHTML = `<i class="fa fa-chevron-right" style="margin-right:8px; font-size:0.8em;"></i> ${block.month}`;
+
+    // 创建该月份下的新闻列表 (ul)，初始设为隐藏
+    const itemUl = document.createElement('ul');
+    itemUl.style.display = 'none'; 
+    itemUl.style.paddingLeft = '20px';
+    itemUl.style.marginTop = '5px';
+
+    block.items.forEach(it => {
+      const li = document.createElement('li');
+      // 链接指向 json 中定义的归档文件，例如 news-past-202601.html
+      li.innerHTML = `<a href="${block.file}">${it.label}</a>`;
+      li.style.fontSize = '0.9em';
+      li.style.marginBottom = '5px';
+      itemUl.appendChild(li);
+    });
+
+    // 绑定点击事件：点击月份切换显示/隐藏
+    monthLi.onclick = () => {
+      const isHidden = itemUl.style.display === 'none';
+      itemUl.style.display = isHidden ? 'block' : 'none';
+      
+      // 切换小图标方向
+      const icon = monthLi.querySelector('i');
+      icon.className = isHidden ? 'fa fa-chevron-down' : 'fa fa-chevron-right';
+    };
+
+    ul.appendChild(monthLi);
+    ul.appendChild(itemUl);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadNewsSidebar);
+</script>
+
+	
+	<body class="is-preload homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
+
+						<!-- Logo -->
+							<div id="logo">
+								<div class="col-lg-2 col-sm-4">
+									<a href="index.html"><img src="images/logo3_transparentbackground.png" alt="中文儿童图书馆" class="logo"></a>
+								</div>
+							</div> 
+
+ 						<!-- Language Switch -->
+						  <div class="lang-switch">
+						    <a href="news.html" class="active">中文</a> |
+						    <a href="news_en.html">English</a>
+						  </div>				
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="index.html">主页</a></li>
+									<li>
+										<a href="our-work.html">公益项目</a>
+										<ul>
+											<li><a href="sprout_pack.html">萌芽包赠书计划</a></li>
+											<li><a href="little_forest.html">小森林借阅网络</a></li>
+											<li><a href="story_times.html">故事会育林计划</a></li>
+											<li><a href="culture_events.html">文化活动</a></li>
+										</ul>
+									</li>
+									<li class="current"><a href="news.html">最新动态</a></li>
+									<li>
+										<a href="about-us.html">关于我们</a>
+									</li>
+
+									<li>
+										<a href="support-us.html">支持我们</a>
+									</li>
+								</ul>
+							</nav>
+
+					</header>
+				</div>
+
+			<!-- Main -->
+				<div class="row">
+					<div class="col-9 col-12-small">
+
+
+
+						<div class="gtr-200 news row" id="news5">
+							<div class="col-4 col-12-medium col-12-small">
+								<div id="sidebar">
+
+									<!-- Sidebar -->
+
+										<section>
+											<h3>第9期故事会</h3>
+											<p>匹兹堡中华文化中心多年致力于宣扬我们的文化，每年夏季于Mellon park举办的中华文化节和年底的春晚最为声势浩大。<br>
+											中文儿童图书馆做为26年的春晚赞助组织之一，于活动当天与大家见面，为来看春晚的家庭和孩子们带来了一些小游戏，助力节日氛围。</p>
+										</section>
+
+								</div>
+							</div>
+							<div class="col-8 col-12-medium col-12-small">
+								<div id="content">
+
+									<!-- Content -->
+									<article>
+									  <div id="sidebar">
+									    <section class="widget slideshow">
+									      <div class="slideshow-container">
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_5.jpg" alt="照片">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_6.jpg" alt="照片">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_7.jpg" alt="照片">
+									        </div>
+
+									        <!-- 控制按钮 -->
+									        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+									      </div>
+
+									      <!-- 小圆点指示 -->
+									      <div class="dots" style="text-align:center">
+									        <span class="dot" onclick="currentSlide(1)"></span>
+									        <span class="dot" onclick="currentSlide(2)"></span>
+									        <span class="dot" onclick="currentSlide(3)"></span>
+									      </div>
+									    </section>
+									  </div>
+									</article>
+
+								</div>
+							</div>
+						</div>						
+
+
+
+
+						<div class="gtr-200 news row" id="news4">
+							<div class="col-4 col-12-medium col-12-small">
+								<div id="sidebar">
+
+									<!-- Sidebar -->
+
+										<section>
+											<h3>中文儿童图书馆助力匹兹堡中华文化中心春晚</h3>
+											<p>匹兹堡中华文化中心多年致力于宣扬我们的文化，每年夏季于Mellon park举办的中华文化节和年底的春晚最为声势浩大。<br>
+											中文儿童图书馆做为26年的春晚赞助组织之一，于活动当天与大家见面，为来看春晚的家庭和孩子们带来了一些小游戏，助力节日氛围。</p>
+										</section>
+
+								</div>
+							</div>
+							<div class="col-8 col-12-medium col-12-small">
+								<div id="content">
+
+									<!-- Content -->
+									<article>
+									  <div id="sidebar">
+									    <section class="widget slideshow">
+									      <div class="slideshow-container">
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_5.jpg" alt="照片">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_6.jpg" alt="照片">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_7.jpg" alt="照片">
+									        </div>
+
+									        <!-- 控制按钮 -->
+									        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+									      </div>
+
+									      <!-- 小圆点指示 -->
+									      <div class="dots" style="text-align:center">
+									        <span class="dot" onclick="currentSlide(1)"></span>
+									        <span class="dot" onclick="currentSlide(2)"></span>
+									        <span class="dot" onclick="currentSlide(3)"></span>
+									      </div>
+									    </section>
+									  </div>
+									</article>
+
+								</div>
+							</div>
+						</div>						
+
+
+
+
+						<div class="gtr-200 news row" id="news3">
+							<div class="col-4 col-12-medium col-12-small">
+								<div id="sidebar">
+
+									<!-- Sidebar -->
+
+										<section>
+											<h3>Toy Lending Library邀请春节专场</h3>
+											<p>中文儿童图书馆受匹兹堡Toy Lending Library之邀，于2月7日早晨为各族裔小朋友们带去了一场丰富又有趣的中国新年故事会。<br>
+											我们精美的春节互动展板抓人眼球，我们的主讲人郭玉演绎生动，互动连连，最后的马年手工完美收官。大小朋友一起度过了美好的周末上午。</p>
+										</section>
+
+								</div>
+							</div>
+							<div class="col-8 col-12-medium col-12-small">
+								<div id="content">
+
+									<!-- Content -->
+									<article>
+									  <div id="sidebar">
+									    <section class="widget slideshow">
+									      <div class="slideshow-container">
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_1.jpg" alt="照片">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_2.jpg" alt="照片">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_3.jpg" alt="照片">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260207_4.png" alt="照片">
+									        </div>
+
+									        <!-- 控制按钮 -->
+									        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+									      </div>
+
+									      <!-- 小圆点指示 -->
+									      <div class="dots" style="text-align:center">
+									        <span class="dot" onclick="currentSlide(1)"></span>
+									        <span class="dot" onclick="currentSlide(2)"></span>
+									        <span class="dot" onclick="currentSlide(3)"></span>
+									      </div>
+									    </section>
+									  </div>
+									</article>
+
+								</div>
+							</div>
+						</div>						
+
+
+
+						<div class="gtr-200 news row" id="news2">
+							<div class="col-4 col-12-medium col-12-small">
+								<div id="sidebar">
+
+									<!-- Sidebar -->
+										<section>
+											<h3>春节文化宣传之Mcknight</h3>
+											<p>我们的中国新年展板巡回展览开始啦～～～<br>
+											2026年2月7日第一场。今晚我们走进Mcknight小学国际文化节，为时两小时，给小朋友们展示中国新年文化。</p>
+										</section>
+
+								</div>
+							</div>
+							<div class="col-8 col-12-medium col-12-small">
+								<div id="content">
+
+									<!-- Content -->
+									<article>
+									  <div id="sidebar">
+									    <section class="widget slideshow">
+									      <div class="slideshow-container">
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260205_1.jpg" alt="照片1">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260205_2.jpg" alt="照片2">
+									        </div>
+
+									        <!-- 控制按钮 -->
+									        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+									      </div>
+
+									      <!-- 小圆点指示 -->
+									      <div class="dots" style="text-align:center">
+									        <span class="dot" onclick="currentSlide(1)"></span>
+									        <span class="dot" onclick="currentSlide(2)"></span>
+									        <span class="dot" onclick="currentSlide(3)"></span>
+									      </div>
+									    </section>
+									  </div>
+									</article>
+
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="gtr-200 news row" id="news1">
+							<div class="col-8 col-12-medium">
+								<div id="content">
+
+									<!-- Content -->
+									<article>
+									  <div id="sidebar">
+									    <section class="widget slideshow">
+									      <div class="slideshow-container">
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260201_1.png" alt="照片1">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260201_2.png" alt="照片2">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260201_3.png" alt="照片3">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202602/20260201_4.png" alt="照片4">
+									        </div>
+
+									        <!-- 控制按钮 -->
+									        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+									      </div>
+
+									      <!-- 小圆点指示 -->
+									      <div class="dots" style="text-align:center">
+									        <span class="dot" onclick="currentSlide(1)"></span>
+									        <span class="dot" onclick="currentSlide(2)"></span>
+									        <span class="dot" onclick="currentSlide(3)"></span>
+									      </div>
+									    </section>
+									  </div>
+									</article>
+
+								</div>
+							</div>
+							<div class="col-4 col-12-medium">
+								<div id="sidebar">
+
+									<!-- Sidebar -->
+										<section>
+											<h3>📚 第8期中文故事会</h3>
+											<p>
+												Ms.JJ真是太懂小朋友们啦！没有一个幼崽能逃脱Ms.JJ的故事引诱，完完全全地被吸引住了。<br>大家跟着老师又唱又跳，玩得好开心！<br>
+												喜欢Ms.JJ的小朋友和家长要注意了哦！Ms.JJ的返场时间为3月1号，不要错过哟～～
+												</p>
+										</section>
+
+
+								</div>
+							</div>
+						</div>
+
+
+
+
+          </div>
+
+
+
+
+					<div class="col-3 col-12-small">
+					  <div id="sidebar" class="past-news">
+					    <div id="news-sidebar-container"></div>
+					  </div>
+					</div>
+
+
+
+				</div>
+
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row footer-middle">
+							  <!-- ✅ 新增包裹层 -->
+  							<div class="footer-nav-contact col-6 col-6-medium col-12-small">
+								<div class="footer-nav col-3 col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<ul class="style2">
+											<li><a href="#">回到顶端</a></li>
+											<li><a href="our-work.html">公益项目</a></li>
+											<li><a href="about-us.html">关于我们</a></li>
+											<li><a href="https://www.zeffy.com/en-US/donation-form/supporting-our-language-and-culture"
+											   target="_blank"
+											   rel="noopener noreferrer"
+											   ">支持我们</a></li>
+										</ul>
+									</section>
+								</div>
+
+								<!-- 竖线分隔 -->
+							    <div class="footer-divider"></div>
+								<div class="footer-contact col-3 col-12-small">
+
+								<!-- Contact -->
+									<section class="widget contact last">
+										<div class="contact-info">
+											<p style="color: #ff6600; margin-bottom:0.5em">中文儿童图书馆 </br> Chinese Library for Children</p>
+											<p><i class="fa-solid fa-envelope"></i> admin@chineselib.org </br>
+													<i class="fa-solid fa-phone"></i> (412) 342-8176  </br>
+													<i class="fa-solid fa-location-dot"></i> Pittsburgh, PA 15217
+											</p>
+										</div>
+									</section>
+								</div>
+
+							</div>							
+							<div class="footer-follow col-6 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+									  <h3 style="margin-bottom:-0.2em">关注我们</h3>
+									  <div class="qrcode-row">
+
+									    <!-- 微信 -->
+									    <div class="qrcode-item">
+									    	<a href="#/qrcode-item" class="foot-icon-qrcode">
+									        <img src="images/Wechat_qr.jpg" alt="微信公众号">
+									      <p class="qrcode-label" style="margin-top:-0.2em">微信联系</p>
+									      </a>
+									      
+									    </div>
+
+									    <!-- 小红书 -->
+									    <div class="qrcode-item">
+									      <a href="https://xhslink.com/m/3u1PDrAZHsN"
+									         target="_blank"
+									         rel="noopener noreferrer"
+									         class="foot-icon-qrcode">
+									        <img src="images/qrcode-rednote.jpg" alt="小红书">
+									        <p class="qrcode-label" style="margin-top:-0.2em">小红书</p>
+									      </a>
+									    </div>
+
+									    <!-- logo -->
+									    <div class="qrcode-item">
+									    	<a href="index.html" class="foot-icon-qrcode">
+									        <img src="images/logo1_transparentbackground.png" alt="logo">
+									      <p class="qrcode-label" style="margin-top:-0.2em">中文儿童图书馆</p>
+									      </a>
+									      
+									    </div>
+
+
+									  </div>
+									</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li style="color: #ff6600;" >&copy; Chinese Library for Children. All rights reserved</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+<!-- 			<script>
+				document.addEventListener("DOMContentLoaded", () => {
+				  const carousels = document.querySelectorAll(".slideshow-container");
+
+				  carousels.forEach((carousel, index) => {
+				    let slides = carousel.querySelectorAll(".slide");
+				    let dots = carousel.parentElement.querySelectorAll(".dot");
+				    let slideIndex = 0;
+
+				    function showSlides(n) {
+				      if (n >= slides.length) slideIndex = 0;
+				      if (n < 0) slideIndex = slides.length - 1;
+				      slides.forEach((s) => (s.style.display = "none"));
+				      dots.forEach((d) => d.classList.remove("active"));
+				      slides[slideIndex].style.display = "block";
+				      if (dots[slideIndex]) dots[slideIndex].classList.add("active");
+				    }
+
+				    // 按钮事件
+				    const prev = carousel.querySelector(".prev");
+				    const next = carousel.querySelector(".next");
+				    if (prev) prev.onclick = () => showSlides(--slideIndex);
+				    if (next) next.onclick = () => showSlides(++slideIndex);
+
+				    // 小圆点事件
+				    dots.forEach((dot, i) => {
+				      dot.onclick = () => showSlides((slideIndex = i));
+				    });
+
+				    // 初始化
+				    showSlides(slideIndex);
+
+				    // 自动播放（独立）
+				    setInterval(() => {
+				      slideIndex++;
+				      showSlides(slideIndex);
+				    }, 4000);
+				  });
+				});
+				document.addEventListener('DOMContentLoaded', loadNewsSidebar);
+			</script>
+ -->
+
+	</body>
+</html>

@@ -279,6 +279,7 @@
 
 
 			<script>
+
 async function loadNewsSidebar() {
   // 1) 加载侧栏框架
   const sidebarHtml = await fetch('/partials/news_sidebar.html').then(r => r.text());
@@ -287,19 +288,52 @@ async function loadNewsSidebar() {
   // 2) 加载归档数据并渲染
   const archive = await fetch('/data/news_archive.json').then(r => r.json());
   const ul = document.getElementById('news-archive-list');
+  ul.innerHTML = ''; // 清空现有内容
 
-  // 最新在上：假设你 JSON 已经按新到旧排好
   archive.forEach(block => {
+    // 创建月份标题容器 (li)
+    const monthLi = document.createElement('li');
+    monthLi.style.cursor = 'pointer';
+    monthLi.style.fontWeight = 'bold';
+    monthLi.style.listStyle = 'none';
+    monthLi.style.marginTop = '10px';
+    
+    // 使用 FontAwesome 图标指示展开状态
+    monthLi.innerHTML = `<i class="fa fa-chevron-right" style="margin-right:8px; font-size:0.8em;"></i> ${block.month}`;
+
+    // 创建该月份下的新闻列表 (ul)，初始设为隐藏
+    const itemUl = document.createElement('ul');
+    itemUl.style.display = 'none'; 
+    itemUl.style.paddingLeft = '20px';
+    itemUl.style.marginTop = '5px';
+
     block.items.forEach(it => {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${block.file}#${it.id}">${it.label}</a>`;
-      ul.appendChild(li);
+      // 链接指向 json 中定义的归档文件，例如 news-past-202601.html
+      li.innerHTML = `<a href="${block.file}">${it.label}</a>`;
+      li.style.fontSize = '0.9em';
+      li.style.marginBottom = '5px';
+      itemUl.appendChild(li);
     });
-  });
-}
 
+    // 绑定点击事件：点击月份切换显示/隐藏
+    monthLi.onclick = () => {
+      const isHidden = itemUl.style.display === 'none';
+      itemUl.style.display = isHidden ? 'block' : 'none';
+      
+      // 切换小图标方向
+      const icon = monthLi.querySelector('i');
+      icon.className = isHidden ? 'fa fa-chevron-down' : 'fa fa-chevron-right';
+    };
+
+    ul.appendChild(monthLi);
+    ul.appendChild(itemUl);
+  });
+
+}
 document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 </script>
+
 
 
 
