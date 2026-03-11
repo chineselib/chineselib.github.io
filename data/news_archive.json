@@ -3,62 +3,62 @@
     "month": "2026-03",
     "file": "/news.html",
     "items": [
-      {"id":"news1","label":"2026年03月01日｜第10期中文故事会圆满！"},
-      {"id":"news2","label":"2026年03月08日｜故事会“育林计划”导师团正式成军！"}
+      {"id":"news1","label":"3月01日｜第10期中文故事会圆满！"},
+      {"id":"news2","label":"3月08日｜故事会“育林计划”导师团正式成军！"}
     ]
   },
   {
     "month": "2026-02",
     "file": "/news-past-202602.html",
     "items": [
-      {"id": "news1","label": "2026年02月01日｜第8期中文故事会太精彩了！"},
-      {"id": "news2","label": "2026年02月05日｜春节文化宣传之Mcknight"},
-      {"id": "news3","label": "2026年02月07日｜Toy Lending Library邀请春节专场"},
-      {"id": "news4","label": "2026年02月07日｜中文儿童图书馆助力匹兹堡中华文化中心春晚"},
-      {"id": "news5","label": "2026年02月15日｜第9期中文故事会庆贺新春"}
+      {"id": "news1","label": "2月01日｜第8期中文故事会太精彩了！"},
+      {"id": "news2","label": "2月05日｜春节文化宣传之Mcknight"},
+      {"id": "news3","label": "2月07日｜Toy Lending Library邀请春节专场"},
+      {"id": "news4","label": "2月07日｜中文儿童图书馆助力匹兹堡中华文化中心春晚"},
+      {"id": "news5","label": "2月15日｜第9期中文故事会庆贺新春"}
     ]
   },
   {
     "month": "2026-01",
     "file": "/past_news_html/news-past-202601.html",
     "items": [
-      {"id":"news1","label":"2026年01月18日｜第7期中文故事会太热闹啦～"},
-      {"id":"news2","label":"2026年01月04日｜第6期中文故事会因CLP临时闭馆取消"},
-      {"id":"news3","label":"2026年01月01日｜萌芽包第一期注册开始啦！"}
+      {"id":"news1","label":"1月18日｜第7期中文故事会太热闹啦～"},
+      {"id":"news2","label":"1月04日｜第6期中文故事会因CLP临时闭馆取消"},
+      {"id":"news3","label":"1月01日｜萌芽包第一期注册开始啦！"}
     ]
   },
   {
     "month": "2025-12",
     "file": "/past_news_html/news-past-202512.html",
     "items": [
-      {"id":"news1","label":"2025年12月14日｜2号小馆成立"},
-      {"id":"news2","label":"2025年12月13日｜萌芽包第一期预告"},
-      {"id":"news3","label":"2025年12月11日｜第一期线上活动受到好评"},
-      {"id":"news4","label":"2025年12月04日｜第5期中文故事会"}
+      {"id":"news1","label":"12月14日｜2号小馆成立"},
+      {"id":"news2","label":"12月13日｜萌芽包第一期预告"},
+      {"id":"news3","label":"12月11日｜第一期线上活动受到好评"},
+      {"id":"news4","label":"12月04日｜第5期中文故事会"}
     ]
   },
   {
     "month": "2025-11",
     "file": "/past_news_html/news-past-202511.html",
     "items": [
-      {"id":"news1","label":"2025年11月23日｜第4期中文故事会"},
-      {"id":"news2","label":"2025年11月16日｜第3期中文故事会"},
-      {"id":"news3","label":"2025年11月02日｜第2期中文故事会"}
+      {"id":"news1","label":"11月23日｜第4期中文故事会"},
+      {"id":"news2","label":"11月16日｜第3期中文故事会"},
+      {"id":"news3","label":"11月02日｜第2期中文故事会"}
     ]
   },
   {
     "month": "2025-10",
     "file": "/past_news_html/news-past-202510.html",
     "items": [
-      {"id":"news1","label":"2025年10月03日｜第一批童书到站"},
-      {"id":"news2","label":"2025年10月18日｜第1期中文故事会"}
+      {"id":"news1","label":"10月03日｜第一批童书到站"},
+      {"id":"news2","label":"10月18日｜第1期中文故事会"}
     ]
   },
   {
     "month": "2025-09",
     "file": "/past_news_html/news-past-202509.html",
     "items": [
-      {"id":"news1","label":"2025年09月24日｜第一次董事会会议"}
+      {"id":"news1","label":"9月24日｜第一次董事会会议"}
     ]
   }
 ]
