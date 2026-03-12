@@ -3721,4 +3721,10 @@ html {
 }
 
 
-
+/* 针对描述文字（名字之后的部分） */
+.team-member h5 + p, 
+.team-member p {
+    font-size: 0.6rem; 
+    margin-top: 5px;
+    line-height: 1.5;
+}
