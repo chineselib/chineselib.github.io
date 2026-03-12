@@ -1,0 +1,67 @@
+[
+    {
+    "month": "2026-03",
+    "file": "/news_en.html",
+    "items": [
+      {"id":"news1","label":"Mar01｜10th Storytime was a big hit！"},
+      {"id":"news2","label":"Mar08｜Introducing the Storytime Seedling Program Team"},
+      {"id":"news3","label":"Mar10｜We are thrilled to welcome Jing Zhang, founder of BrightUp Kids, to our team!"}
+    ]
+  },
+  {
+    "month": "2026-02",
+    "file": "/past_news_html/news-past-202602.html",
+    "items": [
+      {"id": "news1","label": "Feb01｜Our 8th Chinese Storytime was absolutely amazing!"},
+      {"id": "news2","label": "Feb05｜A visit to McKnight Elementary: Celebrating their very first International Fair!"},
+      {"id": "news3","label": "Feb07｜A Collaborative Celebration: CLC joins the Toy Lending Library’s Chinese New Year Special"},
+      {"id": "news4","label": "Feb07｜中文儿童图书馆助力匹兹堡中华文化中心春晚"},
+      {"id": "news5","label": "Feb15｜第9期中文故事会庆贺新春"},
+      {"id": "news6","label": "Feb17｜Union Church Academy春节故事会特辑"},
+      {"id": "news6","label": "Feb21｜【新春足迹】Phipps植物园：一场震撼全城的文化盛宴"}
+    ]
+  },
+  {
+    "month": "2026-01",
+    "file": "/past_news_html/news-past-202601.html",
+    "items": [
+      {"id":"news1","label":"1月18日｜第7期中文故事会太热闹啦～"},
+      {"id":"news2","label":"1月04日｜第6期中文故事会因CLP临时闭馆取消"},
+      {"id":"news3","label":"1月01日｜萌芽包第一期注册开始啦！"}
+    ]
+  },
+  {
+    "month": "2025-12",
+    "file": "/past_news_html/news-past-202512.html",
+    "items": [
+      {"id":"news1","label":"12月14日｜2号小馆成立"},
+      {"id":"news2","label":"12月13日｜萌芽包第一期预告"},
+      {"id":"news3","label":"12月11日｜第一期线上活动受到好评"},
+      {"id":"news4","label":"12月04日｜第5期中文故事会"}
+    ]
+  },
+  {
+    "month": "2025-11",
+    "file": "/past_news_html/news-past-202511.html",
+    "items": [
+      {"id":"news1","label":"11月23日｜第4期中文故事会"},
+      {"id":"news2","label":"11月16日｜第3期中文故事会"},
+      {"id":"news3","label":"11月02日｜第2期中文故事会"}
+    ]
+  },
+  {
+    "month": "2025-10",
+    "file": "/past_news_html/news-past-202510.html",
+    "items": [
+      {"id":"news1","label":"10月03日｜第一批童书到站"},
+      {"id":"news2","label":"10月18日｜第1期中文故事会"}
+    ]
+  },
+  {
+    "month": "2025-09",
+    "file": "/past_news_html/news-past-202509.html",
+    "items": [
+      {"id":"news1","label":"9月24日｜第一次董事会会议"}
+    ]
+  }
+]

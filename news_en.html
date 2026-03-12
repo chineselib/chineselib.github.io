@@ -19,20 +19,52 @@
 <script>
 async function loadNewsSidebar() {
   // 1) 加载侧栏框架
-  const sidebarHtml = await fetch('/partials/news_sidebar.html').then(r => r.text());
+  const sidebarHtml = await fetch('/partials/news_sidebar_en.html').then(r => r.text());
   document.getElementById('news-sidebar-container').innerHTML = sidebarHtml;
 
   // 2) 加载归档数据并渲染
-  const archive = await fetch('/data/news_archive.json').then(r => r.json());
+  const archive = await fetch('/data/news_archive_en.json').then(r => r.json());
   const ul = document.getElementById('news-archive-list');
+  ul.innerHTML = ''; // 清空现有内容
 
-  // 最新在上：假设你 JSON 已经按新到旧排好
   archive.forEach(block => {
+    // 创建月份标题容器 (li)
+    const monthLi = document.createElement('li');
+    monthLi.style.cursor = 'pointer';
+    monthLi.style.fontWeight = 'bold';
+    monthLi.style.listStyle = 'none';
+    monthLi.style.marginTop = '10px';
+    
+    // 使用 FontAwesome 图标指示展开状态
+    monthLi.innerHTML = `<i class="fa fa-chevron-right" style="margin-right:8px; font-size:0.8em;"></i> ${block.month}`;
+
+    // 创建该月份下的新闻列表 (ul)，初始设为隐藏
+    const itemUl = document.createElement('ul');
+    itemUl.style.display = 'none'; 
+    itemUl.style.paddingLeft = '20px';
+    itemUl.style.marginTop = '5px';
+
     block.items.forEach(it => {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${block.file}#${it.id}">${it.label}</a>`;
-      ul.appendChild(li);
+      // 链接指向 json 中定义的归档文件，例如 news-past-202601.html
+      li.innerHTML = `<a href="${block.file}">${it.label}</a>`;
+      li.style.fontSize = '0.9em';
+      li.style.marginBottom = '5px';
+      itemUl.appendChild(li);
     });
+
+    // 绑定点击事件：点击月份切换显示/隐藏
+    monthLi.onclick = () => {
+      const isHidden = itemUl.style.display === 'none';
+      itemUl.style.display = isHidden ? 'block' : 'none';
+      
+      // 切换小图标方向
+      const icon = monthLi.querySelector('i');
+      icon.className = isHidden ? 'fa fa-chevron-down' : 'fa fa-chevron-right';
+    };
+
+    ul.appendChild(monthLi);
+    ul.appendChild(itemUl);
   });
 }
 
@@ -98,8 +130,13 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 
 									<!-- Sidebar -->
 										<section>
-											<h3>Chinese New Year Culture Display Tour Has Officially Kicked Off!</h3>
-											<p>On February 5, we will be visiting McKnight Elementary School’s International Festival for a two-hour cultural display, where children will be able to explore and experience traditional Chinese New Year customs through an interactive and hands-on exhibition.</P>
+											<h3>第10期故事会欢乐无限</h3>
+											<p>周末的快乐是Ms.JJ给的！✨<br>
+											超燃开场： 从欢快的姓名歌到全场热舞，害羞的小朋友也瞬间变身“社牛”！🕺💃<br>
+											沉浸绘本： Ms.JJ和小助手默契配合，带大家钻进《好饿的毛毛虫》的奇妙世界。<br>
+											创意手工： 当孩子们亲手完成“化茧成蝶”的小手工，眼里全是惊喜的星星点点！✨🦋<br>
+
+											看着孩子们在熟悉的中文环境里无压力地尽情玩耍，这种快乐真的太治愈了！</p>
 										</section>
 
 								</div>
@@ -113,10 +150,16 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 									    <section class="widget slideshow">
 									      <div class="slideshow-container">
 									        <div class="slide fade">
-									          <img src="images/news/20260205/20260205_1.jpg" alt="pic#1">
+									          <img src="images/news/202603/20260301_1.jpg" alt="照片1">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260205/20260205_2.jpg" alt="pic#2">
+									          <img src="images/news/202603/20260301_2.jpg" alt="照片2">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202603/20260301_3.jpg" alt="照片2">
+									        </div>
+									        <div class="slide fade">
+									          <img src="images/news/202603/20260301_4.png" alt="照片2">
 									        </div>
 
 									        <!-- 控制按钮 -->
@@ -139,9 +182,25 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 						</div>
 
 
-
 						<div class="gtr-200 news row" id="news2">
-							<div class="col-8 col-12-medium">
+							<div class="col-4 col-12-medium col-12-small">
+								<div id="sidebar">
+
+									<!-- Sidebar -->
+										<section>
+											<h3>故事会“育林计划”导师团正式成军！</h3>
+											<p>经过多方联络，北美中文故事会“育林计划”导师团终于落地！<br>
+											这不仅是一次团队的聚合，更是一场跨越地域的文化接力。我们的核心力量包括：<br>
+											<b>杨力老师</b>： 坚持故事会公益逾7年<br>
+											<b>张静老师</b>： 独自创办BUK两地故事会<br>
+											<b>更有众多深耕多年的同胞好友加盟</b><br>
+											我们将携手深耕北美，让每一块土壤都回荡中文故事的声音！
+										</p>
+										</section>
+
+								</div>
+							</div>
+							<div class="col-8 col-12-medium col-12-small">
 								<div id="content">
 
 									<!-- Content -->
@@ -150,16 +209,16 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 									    <section class="widget slideshow">
 									      <div class="slideshow-container">
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_1.png" alt="pic#1">
+									          <img src="images/news/202603/20260308_1.png" alt="照片1">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_2.png" alt="pic#2">
+									          <img src="images/news/202603/20260308_2.png" alt="照片2">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_3.png" alt="pic#3">
+									          <img src="images/news/202603/huangge.jpg" alt="照片2">
 									        </div>
 									        <div class="slide fade">
-									          <img src="images/news/20260201/20260201_4.png" alt="pic#4">
+									          <img src="images/news/202603/zhimeng.jpg" alt="照片2">
 									        </div>
 
 									        <!-- 控制按钮 -->
@@ -179,54 +238,17 @@ document.addEventListener('DOMContentLoaded', loadNewsSidebar);
 
 								</div>
 							</div>
-							<div class="col-4 col-12-medium">
-								<div id="sidebar">
-
-									<!-- Sidebar -->
-										<section>
-											<h3>📚 Chinese Storytime – Session 8</h3>
-											<p>
-											We all love Ms. JJ! Yay!<br>
-We danced and sang together, enjoyed a wonderful story about Emma the Elephant, and learned many fun and interesting elephant facts from Ms. JJ’s collection.<br>
-Afterwards, we played with bubbles and made our own unique elephant crafts — everyone had such a great time!
-</p>
-										</section>
-
-
-								</div>
-							</div>
 						</div>
-
 
 
 					</div>
 
 
 
-
-					<div class="col-3 col-12-small" >
-						<div class="past-news" id="sidebar">
-
-							<!-- Sidebar -->
-
-							<section>
-								<h3>往期活动</h3>
-								<ul class="style2">
-									<li><a href="past_news_html/news-past-202512.html#news1"></br>Dec14，2025 ｜Point Breeze branch in build</a></li>
-									<li><a href="past_news_html/news-past-202512.html#news2"></br>Dec13，2025 ｜Pre-anouncement of Sprout Project</a></li>
-									<li><a href="past_news_html/news-past-202512.html#news3"></br>Dec11，2025 ｜1st Online Event was a big success</a></li>
-									<li><a href="past_news_html/news-past-202512.html#news4"></br>Dec04, 2025 ｜Chinese storytime S5</a></li>
-									<li><a href="past_news_html/news-past-202511.html#news1"></br>Nov23，2025 ｜Chinese storytime S4</a></li>
-									<li><a href="past_news_html/news-past-202511.html#news2">Nov16，2025 | Chinese storytime S3</a></li>
-									<li><a href="past_news_html/news-past-202511.html#news3">Nov02，2025 | Chinese storytime S2</a></li>
-									<li><a href="past_news_html/news-past-202510.html#news1">Oct03，2025 | First book batch arrived!</a></li>
-									<li><a href="past_news_html/news-past-202510.html#news2">Oct18，2025 | Chinese storytime S1</a></li>
-									<li><a href="past_news_html/news-past-202509.html#news1">Sep24，2025 | First board meeting</a></li>
-								</ul>
-
-							</section>
-
-						</div>
+					<div class="col-3 col-12-small">
+					  <div id="sidebar" class="past-news">
+					    <div id="news-sidebar-container"></div>
+					  </div>
 					</div>
 
 				</div>
