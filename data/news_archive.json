@@ -13,11 +13,11 @@
     "file": "/past_news_html/news-past-202602.html",
     "items": [
       {"id": "news1","label": "2月01日｜第8期中文故事会太精彩了！"},
-      {"id": "news2","label": "2月05日｜春节文化宣传之Mcknight"},
-      {"id": "news3","label": "2月07日｜Toy Lending Library邀请春节专场"},
-      {"id": "news4","label": "2月07日｜中文儿童图书馆助力匹兹堡中华文化中心春晚"},
-      {"id": "news5","label": "2月15日｜第9期中文故事会庆贺新春"},
-      {"id": "news6","label": "2月17日｜Union Church Academy春节故事会特辑"},
+      {"id": "news2","label": "2月05日｜走进McKnight小学，共赴首届国际文化节"},
+      {"id": "news3","label": "2月07日｜【双城联动】中文儿童图书馆走进 Toy Lending Library 春节专场"},
+      {"id": "news4","label": "2月07日｜共贺新岁！中文儿童图书馆现身匹兹堡春晚现场"},
+      {"id": "news5","label": "2月15日｜第9期故事会：欢喜过大年！"},
+      {"id": "news6","label": "2月17日｜双场连发！Union Church Academy 春节故事会"},
       {"id": "news6","label": "2月21日｜【新春足迹】Phipps植物园：一场震撼全城的文化盛宴"}
     ]
   },
