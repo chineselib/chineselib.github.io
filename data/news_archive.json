@@ -1,5 +1,13 @@
 [
     {
+    "month": "2026-05",
+    "file": "/news.html",
+    "items": [
+      {"id":"news1","label":"5月16日｜CLC董事会匹兹堡成员线下见面"},
+      {"id":"news2","label":"5月18日｜第二期萌芽包已寄出"},
+    ]
+  },
+  {
     "month": "2026-03",
     "file": "/news.html",
     "items": [
