@@ -3,8 +3,11 @@
     "month": "2026-05",
     "file": "/news.html",
     "items": [
-      {"id":"news1","label":"5月16日｜CLC董事会匹兹堡成员线下见面"},
-      {"id":"news2","label":"5月18日｜第二期萌芽包已寄出"}
+      {"id":"news5","label":"5月18日｜第二期萌芽包已寄出"},
+      {"id":"news4","label":"5月16日｜董事会匹兹堡成员线下见面"},
+      {"id":"news3","label":"5月10日｜获批举办Remake Learning Day Festival"},
+      {"id":"news2","label":"5月09日｜走进科技馆：东方智慧 × STEM"},
+      {"id":"news1","label":"5月03日｜志愿者T恤新鲜出炉"},
     ]
   },
   {
