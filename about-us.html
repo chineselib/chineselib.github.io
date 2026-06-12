@@ -159,7 +159,7 @@
 						<h2>认识我们的志愿者</h2>
 
 						<div class="volunteer-carousel">
-						  <button class="carousel-btn volunteer-prev" onclick="moveVolunteers(-1)">‹</button>
+						  <button class="volunteer-btn volunteer-prev" onclick="moveVolunteers(-1)">‹</button>
 
 						  <div class="volunteer-window">
 						    <div class="volunteer-track" id="volunteerTrack">
@@ -212,7 +212,7 @@
 						    </div>
 						  </div>
 
-						  <button class="carousel-btn volunteer-next" onclick="moveVolunteers(1)">›</button>
+						  <button class="volunteer-btn volunteer-next" onclick="moveVolunteers(1)">›</button>
 						</div>
 					</div>
 				</section>
@@ -330,6 +330,17 @@
     return 6;
   }
 
+  function updateVolunteerPosition() {
+    const track = document.getElementById('volunteerTrack');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.volunteer-card');
+    if (!cards.length) return;
+
+    const cardWidth = cards[0].offsetWidth;
+    track.style.transform = `translateX(${-volunteerIndex * cardWidth}px)`;
+  }
+
   function moveVolunteers(direction) {
     const track = document.getElementById('volunteerTrack');
     if (!track) return;
@@ -341,18 +352,19 @@
     const step = Math.min(3, visible);
     const maxIndex = Math.max(0, cards.length - visible);
 
-    volunteerIndex += direction * step;
-
-    if (volunteerIndex > maxIndex) {
-      volunteerIndex = 0;
+    if (direction > 0) {
+      volunteerIndex = volunteerIndex + step;
+      if (volunteerIndex > maxIndex) {
+        volunteerIndex = volunteerIndex === maxIndex + step ? 0 : maxIndex;
+      }
+    } else {
+      volunteerIndex = volunteerIndex - step;
+      if (volunteerIndex < 0) {
+        volunteerIndex = maxIndex;
+      }
     }
 
-    if (volunteerIndex < 0) {
-      volunteerIndex = maxIndex;
-    }
-
-    const cardWidth = cards[0].offsetWidth;
-    track.style.transform = `translateX(${-volunteerIndex * cardWidth}px)`;
+    updateVolunteerPosition();
   }
 
   function startVolunteerAutoScroll() {
@@ -373,8 +385,7 @@
 
   window.addEventListener('resize', () => {
     volunteerIndex = 0;
-    const track = document.getElementById('volunteerTrack');
-    if (track) track.style.transform = 'translateX(0)';
+    updateVolunteerPosition();
     startVolunteerAutoScroll();
   });
 
@@ -384,7 +395,6 @@
     carousel.addEventListener('mouseleave', startVolunteerAutoScroll);
   }
 </script>
-
 
 	</body>
 </html>
