@@ -159,8 +159,7 @@
 						<h2>认识我们的志愿者</h2>
 
 						<div class="volunteer-carousel">
-						  <button class="volunteer-btn volunteer-prev" onclick="moveVolunteers(-1)">‹</button>
-
+						  <button class="volunteer-btn volunteer-prev" onclick="moveVolunteers(-1, false)">‹</button>
 						  <div class="volunteer-window">
 						    <div class="volunteer-track" id="volunteerTrack">
 								<div class="volunteer-card">
@@ -212,7 +211,7 @@
 						    </div>
 						  </div>
 
-						  <button class="volunteer-btn volunteer-next" onclick="moveVolunteers(1)">›</button>
+							<button class="volunteer-btn volunteer-next" onclick="moveVolunteers(1, false)">›</button>
 						</div>
 					</div>
 				</section>
@@ -323,6 +322,8 @@
 <script>
   let volunteerIndex = 0;
   let volunteerTimer = null;
+  let originalVolunteerCount = 0;
+  let isVolunteerReady = false;
 
   function getVisibleCount() {
     if (window.innerWidth <= 736) return 2;
@@ -330,7 +331,34 @@
     return 6;
   }
 
-  function updateVolunteerPosition() {
+function getVolunteerStep() {
+  return Math.min(3, getVisibleCount());
+}
+
+  function setupVolunteerCarousel() {
+    const track = document.getElementById('volunteerTrack');
+    if (!track) return;
+
+    const cards = Array.from(track.querySelectorAll('.volunteer-card'));
+
+    if (!isVolunteerReady) {
+      originalVolunteerCount = cards.length;
+
+      cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.add('volunteer-clone');
+        track.appendChild(clone);
+      });
+
+      isVolunteerReady = true;
+    }
+
+    volunteerIndex = 0;
+    track.style.transition = 'none';
+    track.style.transform = 'translateX(0)';
+  }
+
+  function updateVolunteerPosition(animate = true) {
     const track = document.getElementById('volunteerTrack');
     if (!track) return;
 
@@ -338,40 +366,46 @@
     if (!cards.length) return;
 
     const cardWidth = cards[0].offsetWidth;
+
+    track.style.transition = animate ? 'transform 0.45s ease' : 'none';
     track.style.transform = `translateX(${-volunteerIndex * cardWidth}px)`;
   }
 
-  function moveVolunteers(direction) {
+  function moveVolunteers(direction, isAuto = false) {
     const track = document.getElementById('volunteerTrack');
-    if (!track) return;
+    if (!track || !isVolunteerReady) return;
 
-    const cards = track.querySelectorAll('.volunteer-card');
-    if (!cards.length) return;
+    const step = getVolunteerStep();
+    volunteerIndex += direction * step;
 
-    const visible = getVisibleCount();
-    const step = Math.min(3, visible);
-    const maxIndex = Math.max(0, cards.length - visible);
-
-    if (direction > 0) {
-      volunteerIndex = volunteerIndex + step;
-      if (volunteerIndex > maxIndex) {
-        volunteerIndex = volunteerIndex === maxIndex + step ? 0 : maxIndex;
-      }
-    } else {
-      volunteerIndex = volunteerIndex - step;
-      if (volunteerIndex < 0) {
-        volunteerIndex = maxIndex;
-      }
+    if (volunteerIndex < 0) {
+      volunteerIndex = originalVolunteerCount - step;
+      updateVolunteerPosition(false);
+      requestAnimationFrame(() => {
+        volunteerIndex -= step;
+        updateVolunteerPosition(true);
+      });
+      return;
     }
 
-    updateVolunteerPosition();
+    updateVolunteerPosition(true);
+  }
+
+  function handleVolunteerLoop() {
+    const track = document.getElementById('volunteerTrack');
+    if (!track || !isVolunteerReady) return;
+
+    if (volunteerIndex >= originalVolunteerCount) {
+      volunteerIndex = 0;
+      updateVolunteerPosition(false);
+    }
   }
 
   function startVolunteerAutoScroll() {
     stopVolunteerAutoScroll();
     volunteerTimer = setInterval(() => {
-      moveVolunteers(1);
-    }, 3500);
+      moveVolunteers(1, true);
+    }, 4000);
   }
 
   function stopVolunteerAutoScroll() {
@@ -381,19 +415,27 @@
     }
   }
 
-  window.addEventListener('load', startVolunteerAutoScroll);
+  window.addEventListener('load', () => {
+    setupVolunteerCarousel();
+    startVolunteerAutoScroll();
+
+    const track = document.getElementById('volunteerTrack');
+    if (track) {
+      track.addEventListener('transitionend', handleVolunteerLoop);
+    }
+
+    const carousel = document.querySelector('.volunteer-carousel');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopVolunteerAutoScroll);
+      carousel.addEventListener('mouseleave', startVolunteerAutoScroll);
+    }
+  });
 
   window.addEventListener('resize', () => {
     volunteerIndex = 0;
-    updateVolunteerPosition();
+    updateVolunteerPosition(false);
     startVolunteerAutoScroll();
   });
-
-  const carousel = document.querySelector('.volunteer-carousel');
-  if (carousel) {
-    carousel.addEventListener('mouseenter', stopVolunteerAutoScroll);
-    carousel.addEventListener('mouseleave', startVolunteerAutoScroll);
-  }
 </script>
 
 	</body>
