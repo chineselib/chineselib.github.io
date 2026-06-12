@@ -391,15 +391,20 @@ function getVolunteerStep() {
     updateVolunteerPosition(true);
   }
 
-  function handleVolunteerLoop() {
-    const track = document.getElementById('volunteerTrack');
-    if (!track || !isVolunteerReady) return;
+function handleVolunteerLoop() {
+  const track = document.getElementById('volunteerTrack');
+  if (!track || !isVolunteerReady) return;
 
-    if (volunteerIndex >= originalVolunteerCount) {
-      volunteerIndex = 0;
-      updateVolunteerPosition(false);
-    }
+  if (volunteerIndex >= originalVolunteerCount) {
+    volunteerIndex = volunteerIndex - originalVolunteerCount;
+    updateVolunteerPosition(false);
   }
+
+  if (volunteerIndex < 0) {
+    volunteerIndex = originalVolunteerCount + volunteerIndex;
+    updateVolunteerPosition(false);
+  }
+}
 
   function startVolunteerAutoScroll() {
     stopVolunteerAutoScroll();
