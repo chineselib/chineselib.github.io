@@ -3874,3 +3874,84 @@ html {
   border-right: none !important;
   padding-right: 0;
 }
+
+
+
+
+
+
+.volunteer-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.volunteer-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+.volunteer-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.volunteer-card {
+  flex: 0 0 16.666%;
+  text-align: center;
+  padding: 0 1em;
+}
+
+img.member-photo {
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+.volunteer-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.45);
+  color: #444;
+  font-size: 2em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  z-index: 5;
+  flex: 0 0 42px;
+}
+
+.volunteer-btn:hover {
+  background: rgba(255,255,255,0.75);
+}
+
+@media screen and (max-width: 980px) {
+  .volunteer-card {
+    flex: 0 0 33.333%;
+  }
+
+  img.member-photo {
+    width: 130px !important;
+    height: 130px !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .volunteer-card {
+    flex: 0 0 50%;
+  }
+
+  img.member-photo {
+    width: 110px !important;
+    height: 110px !important;
+  }
+}
