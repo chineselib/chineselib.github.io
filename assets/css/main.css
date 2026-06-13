@@ -3,28 +3,28 @@
 
 @font-face {
   font-family: 'CFont-lph'; /* 给字体起个名字 */
-  src: url('../webfonts/礼品卉自由理想体.ttf') format('truetype'),
+  src: url('../webfonts/礼品卉自由理想体.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'CFont-KNMaiyuan'; /* 给字体起个名字 */
-  src: url('../webfonts/KNMaiyuan-Regular.ttf') format('truetype'),
+  src: url('../webfonts/KNMaiyuan-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'CFont-ZCOOLXiaoWei'; /* 给字体起个名字 */
-  src: url('../webfonts/ZCOOLXiaoWei-Regular.ttf') format('truetype'),
+  src: url('../webfonts/ZCOOLXiaoWei-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'CFont-ZCOOLKuaiLe'; /* 给字体起个名字 */
-  src: url('../webfonts/ZCOOLKuaiLe-Regular.ttf') format('truetype'),
+  src: url('../webfonts/ZCOOLKuaiLe-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
